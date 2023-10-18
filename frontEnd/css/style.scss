@@ -1,0 +1,385 @@
+
+*{margin: 0;padding: 0;font:inherit;}
+*,*::after,*::before{box-sizing: border-box;}
+ul,li{list-style: none;}
+img,svg{display: block;max-width: 100%s;}
+
+// موقع لأشكال الخطوط                -->    https://www.dafont.com
+// [ ] تصميمات يجب العمل عليها      -->    https://www.youtube.com/watch?v=IXucQAEkIMo&ab_channel=TahmidAhmed
+
+
+
+//!__[fun]________________________________________________________________________________
+@function px($n) {@return calc($n / 16)+rem;}
+@function rem($n) {@return calc($n * 16)+px;}
+@function to-rgb($value) { @return red($value), green($value), blue($value); }
+//!__[mixin]________________________________________________________________________________
+@mixin xxx($property, $value) {
+  #{$property}: ($value / 16) + rem;
+}// @include xxx(width, 400);
+
+/*#region ----------[ var ]---------- */
+@font-face {
+  font-family: 'HankenGrotask';
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(../fonts/HankenGrotask-VariableFont_wght.ttf)format('truetype');
+}
+@font-face {
+  font-family: 'MarkaziText';
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(../fonts/MarkaziText-VariableFont_wght.ttf)format('truetype');
+}
+
+:root{
+// #region [Colors]:
+  // primary - secondary - neutral - accent
+--clr-accent-hsl-1: 0, 100%, 67%;             --clr-accent-1: hsl(var(--clr-accent-hsl-1));
+--clr-accent-hsl-2: 39, 100%, 56%;            --clr-accent-2: hsl(var(--clr-accent-hsl-2));
+--clr-accent-hsl-3: 166, 100%, 37%;           --clr-accent-3: hsl(var(--clr-accent-hsl-3));
+--clr-accent-hsl-4: 234, 85%, 45%;            --clr-accent-4: hsl(var(--clr-accent-hsl-4));
+
+--clr-primary-hsl-400: 252, 100%, 67%;        --clr-primary-400: hsl(var(--clr-primary-hsl-400));
+--clr-primary-hsl-500: 256, 72%, 46%;         --clr-primary-500: hsla(var(--clr-primary-hsl-500));
+--clr-secondary-hsl-400: 241, 81%, 54%;       --clr-secondary-400: hsl(var(--clr-secondary-hsl-400));
+--clr-secondary-hsl-500: 241, 72%, 46%;       --clr-secondary-500: hsl(var(--clr-secondary-hsl-500));
+
+--clr-neutral-hsl-100: 0, 0%, 100%;           --clr-neutral-100: hsl(var(--clr-neutral-hsl-100));
+--clr-neutral-hsl-200: 221, 100%, 96%;        --clr-neutral-200: hsl(var(--clr-neutral-hsl-200));
+--clr-neutral-hsl-300: 241, 100%, 89%;        --clr-neutral-300: hsl(var(--clr-neutral-hsl-300));
+--clr-neutral-hsl-700: 224, 30%, 27%;         --clr-neutral-700: hsl(var(--clr-neutral-hsl-700));
+
+--gradient-primary: linear-gradient(var(--clr-primary-400), var(--clr-secondary-400));
+--gradient-to-transparent: linear-gradient(var(--clr-primary-500),hsl(var(--clr-secondary-500), 0));
+// #endregion
+
+// #region [Fonts]:
+$fy-g          :   'Hanken Grotask', sans-serif;  --fy-g        :#{$fy-g};  //--font-family-default: 'HankenGrotask', sans-serif;
+$fy-ga         :   'MarkaziText',    sans-serif;  --fy-ga       :#{$fy-ga};  //--font-family-default: 'HankenGrotask', sans-serif;
+
+$fw-regular    :   500                         ;  --fw-regular  :#{$fw-regular};
+$fw-bold       :   700                         ;  --fw-bold     :#{$fw-bold};
+$fw-black      :   800                         ;  --fw-black    :#{$fw-black};
+
+$fs-100        :   0.74rem                     ;  --fs-300      :#{$fs-100};  //  12px
+$fs-200        :   0.875rem                    ;  --fs-300      :#{$fs-200};  //  14px
+$fs-300        :   1rem                        ;  --fs-300      :#{$fs-300};  //  16px
+$fs-400        :   1.125rem                    ;  --fs-400      :#{$fs-400};  //  18px
+$fs-500        :   1.25rem                     ;  --fs-500      :#{$fs-500};  //  20px
+$fs-600        :   1.5rem                      ;  --fs-600      :#{$fs-600};  //  24px
+$fs-700        :   1.75rem                     ;  --fs-700      :#{$fs-700};  //  28px
+$fs-800        :   2rem                        ;  --fs-800      :#{$fs-800};  //  32px
+$fs-900        :   5rem                        ;  --fs-900      :#{$fs-900};  //  80px
+// #endregion
+}
+
+/*#endregion*/
+
+// #region [Color sass]
+$c-a100        :    var(   --clr-accent-1             );
+$c-a200        :    var(   --clr-accent-2             );
+$c-a300        :    var(   --clr-accent-3             );
+$c-a400        :    var(   --clr-accent-4             );
+
+$c-p400        :    var(   --clr-primary-400          );
+$c-p500        :    var(   --clr-primary-500          );
+$c-s400        :    var(   --clr-secondary-400        );
+$c-s400        :    var(   --clr-secondary-500        );
+
+$c-n100        :    var(   --clr-neutral-100          );
+$c-n200        :    var(   --clr-neutral-200          );
+$c-n700        :    var(   --clr-neutral-700          );
+
+$c-gp          :    var(   --gradient-primary         );
+$c-gtt         :    var(   --gradient-to-transparent  );
+
+
+$fy-g          :   var(   --fy-g                      );
+$fy-ga         :   var(   --fy-ga                     );
+
+$fw-regular    :   var(   --fw-regular                );
+$fw-bold       :   var(   --fw-bold                   );
+$fw-black      :   var(   --fw-black                  );
+
+$fs-100        :   var(   --fs-100                    );
+$fs-200        :   var(   --fs-200                    );
+$fs-300        :   var(   --fs-300                    );
+$fs-400        :   var(   --fs-400                    );
+$fs-500        :   var(   --fs-500                    );
+$fs-600        :   var(   --fs-600                    );
+$fs-700        :   var(   --fs-700                    );
+$fs-800        :   var(   --fs-800                    );
+$fs-900        :   var(   --fs-900                    );
+
+// #endregion
+
+// #region [Media query]:
+$mq-M          :   375px                       ;
+$mq-D          :   1440px                      ;
+// #endregion
+
+
+$c-0d3333:#0d3333;
+$c-00ffff:#00ffff;
+$c-d33838:#d33838;
+$c-d39038:#d39038;
+$c-999999:#999999;
+$c-333333:#333333;
+$t-05s:.5s;
+$t-02s:.2s;
+$br6:px(6);             //->border-radius
+
+%usn{user-select: none;}
+%bs{box-shadow: -1px 0 5px 1px rgba($c-999999,40%);}
+%bsn{box-shadow: inset 2px 2px 5px 1px rgba($c-999999,40%);}
+%br{border-radius: $br6;}
+%oh{overflow: hidden;}
+
+.app{
+
+  margin: 0 auto;
+  max-width: px(990);
+  width: 100vw;
+  height: 100vh;
+  font-size: $fs-400;
+  font-family: $fy-ga,$fy-ga;
+  color: $c-n700;
+
+  color: $c-333333;
+
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  align-items: center;
+  flex-direction: column;
+
+  @extend %oh;
+}
+.container{
+  margin: px(50) auto 0;
+  padding: px(15);
+  width: fit-content;
+  width: 80%;
+  
+  @extend %bs;
+  @extend %br;
+  @extend %usn;
+  
+  #add-task{
+    margin-block-end: px(25);
+    display: flex;
+    gap: px(10);
+
+    $pad:px(5) px(10);
+    input,#btnNew-task{padding: $pad;  @extend %br;@extend %bs;&,&:focus{border: 0;outline: none;}}
+    input{width: 90%;@extend %bs;&:focus{@extend %bsn;}}
+    #btnNew-task{width: 10%;color: $c-d39038; cursor: pointer;&:hover,&:focus{color:$c-333333;@extend %bsn;}}
+
+    
+  }
+  .boxes{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1.5%;
+    .box{      
+      width: 33%;
+      max-height: 70vh;
+      color: $c-999999;
+      @extend %bsn;
+      @extend %br;
+      @extend %oh;
+      padding: px(5);
+      &:hover{overflow: auto;}
+      h3,ul li{ padding: px(5);}
+      h3{font-size: 110%;font-weight: 800; text-align: center;}
+      ul{
+        &:empty{width: 100%;height: 50px;}
+        
+        li{
+          --m:#{px(10)};$m:var(--m);
+          font-size: 100%;
+          margin: $m auto;
+          width: calc(100% - ($m * 4));
+          cursor: move;
+          @extend %br;
+          background-color: $c-0d3333;
+          box-shadow: -1px 0 5px 1px rgba($c-00ffff,40%);
+        }
+        .is-dragging{
+          @extend %br;
+          color: $c-0d3333;
+          background-color: $c-d33838;
+          box-shadow: -1px 0 5px 1px rgba($c-d33838,40%);
+        }
+      }
+    }
+    
+    // #todo
+    // #doing
+    // #done
+  }
+}
+
+footer{
+  width: 100%;
+  height: px(40);
+  // @include media_for(m t) {width: 100%;position: absolute;inset-block-end: 0;}
+  @media (768px <= width < 990px) and (300px <= width < 7680px) { width: 100%;position: absolute;inset-block-end: 0; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $c-d33838; 
+  p{cursor: pointer;
+    /*#region ----------[ animation ]---------- */
+      opacity: 0;
+      animation: slide_block-start $t-05s linear forwards calc($t-02s + var(--i));
+    /*#endregion*/
+  }
+  :hover{color: $c-d39038;transition: all $t-02s ease-in-out;}
+  
+
+  .cbox4{
+    $c-00eaff:$c-d39038;  $c-e8e8e8:#e8e8e8;  $c-212121:#212121;
+  
+    $c-bg                         :$c-e8e8e8;
+    $c-box-shadow                 :rgba($c-212121,40%);
+    
+    $c-bg--checked                :$c-00eaff;
+    $c-box-shadow-checked         :rgba($c-00eaff,40%);
+    
+    $c-bg--before                 :rgba($c-212121,20%);
+    $c-box-shadow--before-checked :rgba($c-212121,40%);
+  
+    $w                            :2em;
+    $h                            :calc($w / 2);
+    $br                           :calc($w / 15);
+    $br-rad                       :calc($w / 3);
+    $box-shadow                   :calc($w / 6);
+    $box-shadowR                  :calc($w / 20);
+    $transX                       :calc($w / 2);
+    $transition                   :.3s;
+    
+    input[type="checkbox"]{
+      display: none;
+      &:checked ~ .slider {
+        background-color: $c-bg--checked;
+        &::before {
+          transform: translateX($transX);
+          box-shadow: 0 0 $box-shadow $box-shadowR $c-box-shadow-checked;
+        }
+      }    
+      &:active ~ .slider::before {
+        transform: translate(0);
+      }
+    }
+    
+    .slider {
+      width: $w;height: $h;
+      background-color: $c-bg;
+      border-radius: $br-rad;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border: $br solid transparent;
+      transition: $transition;
+      box-shadow: 0 0 $box-shadow 0 $c-box-shadow inset;
+      cursor: pointer;
+      
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: $c-bg--before;
+        transform: translateX(calc($transX * -1));
+        border-radius: $br-rad;
+        transition: $transition;
+        box-shadow: 0 0 $box-shadow $box-shadowR $c-box-shadow--before-checked;
+      }
+    }
+  
+  }
+  .cbox4__anima{
+    margin-inline-start: px(10);
+    /*#region ----------[ animation ]---------- */
+      opacity: 0;
+      animation: slide_inline-end $t-05s linear forwards calc($t-02s + var(--i));
+    /*#endregion*/
+  }
+}
+
+@keyframes slide_inline-end{
+  0%{
+      transform: translateX(100px);
+      opacity: 0;
+  }
+  100%{
+      transform: translateX(0px);
+      opacity: 1;
+  }
+}
+
+@keyframes slide_block-start{
+  0%{
+      transform: translateY(-400px);
+      opacity: 0;
+  }
+  100%{
+      transform: translateY(0px);
+      opacity: 1;
+  }
+}
+
+
+
+// classes-global:
+
+.fx-c{
+  display: flex;
+  // flex-flow:row repeat;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+
+// Media-----------------:-
+
+@media (1200px < width) {
+  .app {
+    // background: #00f;
+  }
+}
+/* Default */
+@media (990px > width) {
+  .app {
+    // background: #f00;
+  }
+}
+@media (768px > width) {
+  .app {
+    // background: #0f0;
+  }
+}
+
+@media (300px > width) {
+  body::after {
+    content: "ناسف حيث الصفحة لا تعمل علي هذه الشاشة";
+    margin: 10px;
+    padding: calc(50vh - (var(--LH) * 3)) 10px 0;
+    display: block;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    font-size: 250%;
+    line-height: calc(var(--LH) * 2);
+    text-align: center;
+    color: #fff;
+    background: #f00;
+  }
+  .app {
+    display: none;
+  }
+}

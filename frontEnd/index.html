@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="./iamgs/favicon.svg" type="image/x-icon" />
+    <title>BomBa | toDo-list</title>
+  </head>
+  <body>
+    <div class="app">
+      <main class="container">
+        <form id="add-task">
+          <input type="text" placeholder="New ToDo.." id="txt-todo" />
+          <button id="btnNew-task">ADD+</button>
+        </form>
+        <div class="boxes">
+          <div class="box" id="todo">
+            <h3 id="heading">ToDo</h3>
+            <ul></ul>
+          </div>
+          <div class="box" id="doing">
+            <h3 id="heading">Doing</h3>
+            <ul></ul>
+          </div>
+          <div class="box" id="done">
+            <h3 id="heading">Done</h3>
+            <ul>
+              <li>Lorem, ipsum 1 .</li>
+              <li>Lorem, ipsum 2 .</li>
+              <li>Lorem, ipsum 3 .</li>
+              <li>Lorem, ipsum 4 .</li>
+              <li>Lorem, ipsum 5 .</li>
+              <li>Lorem, ipsum 6 .</li>
+              <li>Lorem, ipsum 7 .</li>
+              <li>Lorem, ipsum 8 .</li>
+              <li>Lorem, ipsum 9 .</li>
+              <li>Lorem, ipsum 10 .</li>
+              <li>Lorem, ipsum 11 .</li>
+              <li>Lorem, ipsum 12 .</li>
+              <li>Lorem, ipsum 13 .</li>
+              <li>Lorem, ipsum 14 .</li>
+              <li>Lorem, ipsum 15 .</li>
+              <li>Lorem, ipsum 16 .</li>
+              <li>Lorem, ipsum 17 .</li>
+              <li>Lorem, ipsum 18 .</li>
+              <li>Lorem, ipsum 19 .</li>
+              <li>Lorem, ipsum 20 .</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p style="--i: 0s">&copy; frontEnd by hussein abdo ♥</p>
+        <label
+          class="cbox4 cbox4__anima"
+          style="--i: 0s"
+          onchange="ToggleClassDark(event);"
+          ><input type="checkbox" /><i class="slider"></i
+        ></label>
+      </footer>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
